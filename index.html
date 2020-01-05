@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tactix Oyunu</title>
+  <link rel="stylesheet" href="assets/css/tactix.css">
+  <link rel="stylesheet" href="assets/css/jquery-confirm.min.css">
+
+
+</head>
+
+
+<body>
+
+
+
+  <div class="container">
+
+    <div class="bg bg-sol">
+      <div class="aktif-oyuncu d-none">
+        <img src="assets/img/active-user.png">
+      </div>
+    </div>
+
+    <div class="oyuncu-1-gosterge">
+      <div class='oyuncu-ad'>OYUNCU 1</div>
+    </div>
+    <div class="tactix-container">
+      <div class="tactix">
+
+        <div class="sutun ">
+          <div class="tas" data-satir="1" data-sutun="1">
+            <div></div>
+          </div>
+        </div>
+        <div class="sutun">
+          <div class="tas" data-satir="1" data-sutun="2">
+            <div></div>
+          </div>
+        </div>
+        <div class="sutun">
+          <div class="tas" data-satir="1" data-sutun="3">
+            <div></div>
+          </div>
+        </div>
+        <div class="sutun">
+          <div class="tas" data-satir="1" data-sutun="4">
+            <div></div>
+          </div>
+        </div>
+        <div class="sutun">
+          <div class="tas" data-satir="2" data-sutun="1">
+            <div></div>
+          </div>
+        </div>
+        <div class="sutun">
+          <div class="tas" data-satir="2" data-sutun="2">
+            <div></div>
+          </div>
+        </div>
+        <div class="sutun">
+          <div class="tas" data-satir="2" data-sutun="3">
+            <div></div>
+          </div>
+        </div>
+        <div class="sutun">
+          <div class="tas" data-satir="2" data-sutun="4">
+            <div></div>
+          </div>
+        </div>
+        <div class="sutun">
+          <div class="tas" data-satir="3" data-sutun="1">
+            <div></div>
+          </div>
+        </div>
+        <div class="sutun">
+          <div class="tas" data-satir="3" data-sutun="2">
+            <div></div>
+          </div>
+        </div>
+        <div class="sutun">
+          <div class="tas" data-satir="3" data-sutun="3">
+            <div></div>
+          </div>
+        </div>
+        <div class="sutun">
+          <div class="tas" data-satir="3" data-sutun="4">
+            <div></div>
+          </div>
+        </div>
+        <div class="sutun">
+          <div class="tas" data-satir="4" data-sutun="1">
+            <div></div>
+          </div>
+        </div>
+        <div class="sutun">
+          <div class="tas" data-satir="4" data-sutun="2">
+            <div></div>
+          </div>
+        </div>
+        <div class="sutun">
+          <div class="tas" data-satir="4" data-sutun="3">
+            <div></div>
+          </div>
+        </div>
+        <div class="sutun">
+          <div class="tas" data-satir="4" data-sutun="4">
+            <div></div>
+          </div>
+        </div>
+      </div>
+      <div class="islemler">
+        <button type="button" class="btn btn-primary btn3d tas-kaldir"><img src="assets/img/hand.png" alt=""> Taşları
+          Kaldır</button>
+        <button type="button" class="btn btn-success btn3d yeni-oyun"><img src="assets/img/repeat.png" alt=""> Yeni
+          Oyun</button>
+      </div>
+    </div>
+
+    <div class="oyuncu-2-gosterge">
+      <div class='oyuncu-ad'>OYUNCU 2 </div>
+    </div>
+
+    <div class="bg bg-sag">
+      <div class="aktif-oyuncu d-none">
+        <img src="assets/img/active-user.png">
+      </div>
+    </div>
+
+  </div>
+
+
+  <!--    Oyuncu Bilgi Girişi - Başlangıç  -->
+  <div class="modal modal-oyuncu-girisi">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">Tactix Oyunu - Oyuncu Bilgileri Girişi</div>
+        <button type="button" class="close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+
+        <div class="form-group">
+          <label for="text">Oyuncu 1</label>
+          <input type="text" class="form-control" placeholder="Adınızı ve Soyadınızı Giriniz" name="oyuncu_1">
+        </div>
+
+        <div class="form-group">
+          <label for="text">Oyuncu 2</label>
+          <input type="text" class="form-control" placeholder="Adınızı ve Soyadınızı Giriniz" name="oyuncu_2">
+        </div>
+
+
+        <div class="modal-warning">
+
+        </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-oyun-baslat">İlerle</button>
+      </div>
+    </div>
+
+
+  </div>
+  <!--    Oyuncu Bilgi Girişi - Bitiş  -->
+
+
+  <!--    Oyuncu Kura Çekimi - Başlangıç  -->
+  <div class="modal modal-kura-cekimi d-none">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">Tactix Oyunu - Kura Çekimi</div>
+        <button type="button" class="close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <h3 class="kura-cekimi-baslik">Yarışmacılar</h3>
+        <div class="kura-cekimi">
+          <div class="oyuncu-profil profil-1">
+            <img src="assets/img/user.png" alt="">
+            <h3>Oyuncu 1</h3>
+          </div>
+
+          <div class="oyuncu-profil profil-2">
+            <img src="assets/img/user.png" alt="">
+            <h3>Oyuncu 2</h3>
+          </div>
+        </div>
+
+
+        <div class="btn-kura-cek">
+          <button type="button" class="btn btn-primary">Kura Çek</button>
+        </div>
+
+
+
+
+      </div>
+      <div class="modal-footer">
+
+      </div>
+    </div>
+
+
+  </div>
+  <!--     Oyuncu Kura Çekimi - Bitiş  -->
+
+
+</body>
+
+</html>
+<script src="assets/js/jquery-3.4.1.min.js"></script>
+<script src="assets/js/jquery-confirm.min.js"></script>
+<script src="assets/js/notify.min.js"></script>
+<script src="assets/js/tactix.js"></script>
