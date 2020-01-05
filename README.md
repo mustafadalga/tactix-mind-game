@@ -55,6 +55,7 @@
 
 * **Görüntü 1**
 
-![screencapture-127-0-0-1-5500-index-html-2020-01-05-21_02_17](https://user-images.githubusercontent.com/25087769/71783938-bdc19300-2ffe-11ea-88e9-abbf2a8f87bf.png)
+![screencapture-127-0-0-1-5500-index-html-2020-01-05-21_02_17](https://user-images.githubusercontent.com/25087769/71783981-4b04e780-2fff-11ea-9bfa-dea9b24cb955.png)
+
 
 
