@@ -134,11 +134,6 @@ background: linear-gradient(to left, #93291E, #ED213A);
     animation-duration: 1s;
 
   }
-  .sol-infinite-animation {
-    animation-name: oyuncu-1-gosterge-hamle;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-  }
 
   
   @keyframes oyuncu-1-gosterge-hamle {
@@ -146,52 +141,12 @@ background: linear-gradient(to left, #93291E, #ED213A);
     0% {
  background:rgba(255,0,0,.8);
     }
-
-    10% {
-      background: lime;
-    }
-
-    20% {
+50% {
+   background: lime;
+}
+    100% {
       background:rgba(255,0,0,.8);
     }
-
-    30% {
-     background: lime;
-    }
-
-    40% {
- background:rgba(255,0,0,.8);
-    }
-
-    50% {
-      background: lime;
-    }
-
-    60% {
-  background: lime;
-    }
-
-    70% {
-   background:rgba(255,0,0,.8);
-    }
-
-    80% {
-  background: lime;
-    }
-
-    90% {
-   background:rgba(255,0,0,.8);
-    }
-
-    100% {
-  background: lime;
-    }
-
-  }
-  .sag-infinite-animation {
-    animation-name: oyuncu-2-gosterge-hamle;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
   }
   .oyuncu-2-gosterge-hamle {
     animation-name: oyuncu-2-gosterge-hamle;
@@ -203,48 +158,14 @@ background: linear-gradient(to left, #93291E, #ED213A);
     0% {
   background:#1089ff;
     }
-
-    10% {
-      background: lime;
-    }
-
-    20% {
-     background:#1089ff;
-    }
-
-    30% {
-     background: lime;
-    }
-
-    40% {
-  background:#1089ff;
-    }
-
-    50% {
-          background: lime;
-    }
-
-    60% {
-   background:#1089ff;
-    }
-
-    70% {
-      background: lime;
-    }
-
-    80% {
-  background:#1089ff;
-    }
-
-    90% {
-      background: lime;
-    }
-
+50% {
+    background: lime;
+}
     100% {
-  background:#1089ff;
+      background:#1089ff;
     }
-
   }
+
 
   /* MODAL */
   .modal {
@@ -479,7 +400,9 @@ background: linear-gradient(to left, #93291E, #ED213A);
   animation-name: oyuncu1-left-to-right;
   animation-duration: 1s;
   animation-fill-mode: forwards;
-}  
+}
+
+
 
 @keyframes oyuncu1-right-to-left{
   0% {
