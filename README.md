@@ -47,6 +47,11 @@
  * Jquery
  * Jquery Confirm
  * Notify JS
+
+
+### Notlar
+ * Web uygulama responsive değildir.
+ 
  
 <hr>
 
