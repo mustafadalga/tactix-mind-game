@@ -34,3 +34,27 @@
 * Çapraz bağlantılı taşlar aynı anda alınamazlar.
 * Aynı satır ve sütunda yer alan pullar arasında boşluk varsa bu pullar aynı anda alınamaz. Yani pulların yan yana olması gerekir.
 * Hamle sırası gelen oyuncu, en az bir taşı oyun alanından kaldırmak zorundadır.
+<hr>
+
+### Oyun Bağlantı Adresi : [Tactix](https://mustafadalga.github.io/Front-End-Developments/Tactix/index.html)
+
+<hr>
+
+### Kullanılan Teknolojiler
+ * HTML 5
+ * CSS 3
+ * JavaScript
+ * Jquery
+ * Jquery Confirm
+ * Notify JS
+ 
+<hr>
+
+
+### Proje Görüntüleri
+
+* **Görüntü 1**
+
+![screencapture-127-0-0-1-5500-index-html-2020-01-05-21_02_17](https://user-images.githubusercontent.com/25087769/71783938-bdc19300-2ffe-11ea-88e9-abbf2a8f87bf.png)
+
+
