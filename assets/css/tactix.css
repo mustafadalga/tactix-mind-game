@@ -15,30 +15,20 @@
   .tactix {
     width: 480px;
     height: 480px;
-    background: #C8A264;
-    background: #eacda3;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #d6ae7b, #eacda3);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #d6ae7b, #eacda3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
     background: url('../img/zemin.png');
-    
-  background-repeat: no-repeat;
-  background-size: cover;
-
-
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     flex-wrap: wrap;
-
   }
 
-  .sutun {
+  .hucre {
     border: 2px solid #000;
     width: 116px;
     height: 116px;
     position: relative;
   }
-    .tas {
+  .tas {
     width: 90px;
     height: 90px;
     background: hsla(0, 100%, 50%, 0.6);
@@ -48,7 +38,7 @@ background: linear-gradient(to right, #d6ae7b, #eacda3); /* W3C, IE 10+/ Edge, F
     justify-content: center;
     align-items: center;
     border: 2px solid #000;
-        position: absolute;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -78,9 +68,6 @@ background: linear-gradient(to right, #d6ae7b, #eacda3); /* W3C, IE 10+/ Edge, F
     align-items: center;
     margin-top: 0.5em;
   }
-
-
-
   .oyuncu-1-gosterge,
   .oyuncu-2-gosterge {
     width: 120px;
@@ -112,251 +99,242 @@ background: linear-gradient(to right, #d6ae7b, #eacda3); /* W3C, IE 10+/ Edge, F
     font-size: 20px;
     color:#fff;
   }
-
-
   .oyuncu-1-gosterge-hamle {
     animation-name: oyuncu-1-gosterge-hamle;
     animation-duration: 1s;
 
   }
-
-  
   @keyframes oyuncu-1-gosterge-hamle {
 
     0% {
- background:rgba(255,0,0,.8);
-    }
-50% {
-   background: lime;
+     background:rgba(255,0,0,.8);
+   }
+   50% {
+     background: lime;
+   }
+   100% {
+    background:rgba(255,0,0,.8);
+  }
 }
-    100% {
-      background:rgba(255,0,0,.8);
-    }
-  }
-  .oyuncu-2-gosterge-hamle {
-    animation-name: oyuncu-2-gosterge-hamle;
-    animation-duration: 1s;
+.oyuncu-2-gosterge-hamle {
+  animation-name: oyuncu-2-gosterge-hamle;
+  animation-duration: 1s;
 
-  }
+}
 
- @keyframes oyuncu-2-gosterge-hamle {
-    0% {
-  background:#1089ff;
-    }
-50% {
+@keyframes oyuncu-2-gosterge-hamle {
+  0% {
+    background:#1089ff;
+  }
+  50% {
     background: lime;
+  }
+  100% {
+    background:#1089ff;
+  }
 }
-    100% {
-      background:#1089ff;
-    }
-  }
+
+.modal {
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.modal-content {
+  background: #fff;
+  width: 50%;
+  margin: 5% 25% auto 25%;
+  border: 1px solid #888;
+  padding: 20px;
+}
+
+.modal-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #e9ecef;
+  border-top-left-radius: .3rem;
+  border-top-right-radius: .3rem;
+}
+
+.modal-header .modal-title {
+  margin-bottom: 0;
+  line-height: 1.5;
+  font-size: 1.25em;
+  float: left;
+  font-weight: bold;
+}
+
+.modal-header .close {
+  float: right;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .5;
+  padding: 1rem;
+  margin: -1rem -1rem -1rem auto;
+  background-color: transparent;
+  border: 0;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.modal-body {
+  position: relative;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1em;
+}
+
+.form-group {
+  margin-bottom: 1em;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  box-sizing: border-box;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.form-group label {
+  display: inline-block;
+  margin-bottom: .5rem;
+  font-size: 16px;
+  font-weight: bold;
+  color: #495057;
+}
+
+.modal-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 1rem;
+  border-top: 1px solid #e9ecef;
+}
+.modal-alert{
+  position: relative;
+  padding: .75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  text-align: center;
+
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  margin-left: .25em;
+}
+.btn-success{
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
+}
+.btn-danger{
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+.tas-kaldir img,.yeni-oyun img{
+  margin-right: 0.3em;
+}
 
 
-  /* MODAL */
-  .modal {
-    background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.8);
-    width: 100vw;
-    height: 100vh;
-    z-index: 1;
-    position: fixed;
-    left: 0;
-    top: 0;
-  }
+.alert-success{
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
 
-  .modal-content {
-    background: #fff;
-    width: 50%;
-    margin: 5% 25% auto 25%;
-    border: 1px solid #888;
-    padding: 20px;
-  }
+.d-none {
+  display: none;
 
-  .modal-header {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: start;
-    -ms-flex-align: start;
-    align-items: flex-start;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    padding: 1rem;
-    border-bottom: 1px solid #e9ecef;
-    border-top-left-radius: .3rem;
-    border-top-right-radius: .3rem;
-  }
+}
 
-  .modal-header .modal-title {
-    margin-bottom: 0;
-    line-height: 1.5;
-    font-size: 1.25em;
-    float: left;
-    font-weight: bold;
-  }
+.bg {
+  position: absolute;
+  top: 0px;
+  background: rgba(103, 230, 220,0.5);
+  background: rgba(220, 221, 225);
+  background: #f8f9fa;
+  width: calc(50% - 360px);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
 
-  .modal-header .close {
-    float: right;
-    font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 1;
-    color: #000;
-    text-shadow: 0 1px 0 #fff;
-    opacity: .5;
-    padding: 1rem;
-    margin: -1rem -1rem -1rem auto;
-    background-color: transparent;
-    border: 0;
-    -webkit-appearance: none;
-    cursor: pointer;
-  }
+.bg-sol {
+  left: 0px;
+  justify-content: flex-end;
+}
 
-  .modal-body {
-    position: relative;
-    -webkit-box-flex: 1;
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
-    padding: 1em;
-  }
+.bg-sag {
+  right: 0px;
+  overflow: hidden;
+}
 
-  .form-group {
-    margin-bottom: 1em;
-  }
+.kura-cekimi-baslik{
+  text-align: center;
+  margin:10px 25%;
+  border-bottom: 1px solid #ccc;
+}
+.kura-cekimi{
+  display: flex;
+  justify-content: space-around;
 
-  .form-control {
-    display: block;
-    width: 100%;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    box-sizing: border-box;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-  }
-
-  .form-group label {
-    display: inline-block;
-    margin-bottom: .5rem;
-    font-size: 16px;
-    font-weight: bold;
-    color: #495057;
-  }
-
-  .modal-footer {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
-    padding: 1rem;
-    border-top: 1px solid #e9ecef;
-  }
-
-  .btn {
-    display: inline-block;
-    font-weight: 400;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    cursor: pointer;
-    border: 1px solid transparent;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    border-radius: .25rem;
-    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-  }
-
-   .btn-primary {
-    color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
-    margin-left: .25em;
-  }
-  .btn-success{
-      color: #fff;
-    background-color: #28a745;
-    border-color: #28a745;
-  }
-  .btn-danger{
-        color: #fff;
-    background-color: #dc3545;
-    border-color: #dc3545;
-  }
-  .tas-kaldir img,.yeni-oyun img{
-    margin-right: 0.3em;
-  }
-
-  .modal-alert{
-    position: relative;
-    padding: .75rem 1.25rem;
-    margin-bottom: 1rem;
-    border: 1px solid transparent;
-    border-radius: .25rem;
-    text-align: center;
-
-  }
-  .alert-success{
-    color: #155724;
-    background-color: #d4edda;
-    border-color: #c3e6cb;
-  }
-  .alert-danger {
-    color: #721c24;
-    background-color: #f8d7da;
-    border-color: #f5c6cb;
-  }
-
-  .d-none {
-    display: none;
-
-  }
-
-  /*END MODAL */
-
-  .bg {
-    position: absolute;
-    top: 0px;
-    background: rgba(103, 230, 220,0.5);
-    background: rgba(220, 221, 225);
-    background: #f8f9fa;
-    width: calc(50% - 360px);
-    height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-
-  .bg-sol {
-    left: 0px;
-    justify-content: flex-end;
-  }
-
-  .bg-sag {
-    right: 0px;
-    overflow: hidden;
-  }
-
-
-  /*Oyuncu Profil - Kural Çekimi Başlangıç*/
-  .kura-cekimi-baslik{
-    text-align: center;
-    margin:10px 25%;
-    border-bottom: 1px solid #ccc;
-  }
-  .kura-cekimi{
-    display: flex;
-    justify-content: space-around;
-    
-  }
+}
 .oyuncu-profil{
   padding:10px;
   text-align: center;
@@ -376,10 +354,6 @@ background: linear-gradient(to right, #d6ae7b, #eacda3); /* W3C, IE 10+/ Edge, F
 .modal-kura-cekimi .modal-footer{
   flex-direction: column;
 }
-  /*Oyuncu Profil - Kural Çekimi Bitiş*/
-
-
-
 
 .bg-sol .aktif-oyuncu {
   animation-name: oyuncu1-left-to-right;
@@ -387,13 +361,11 @@ background: linear-gradient(to right, #d6ae7b, #eacda3); /* W3C, IE 10+/ Edge, F
   animation-fill-mode: forwards;
 }
 
-
-
 @keyframes oyuncu1-right-to-left{
   0% {
     transform: translateX(0px);
   }
-   100% {
+  100% {
     transform: translateX(-400px);
     opacity: 0;
   }
@@ -403,49 +375,44 @@ background: linear-gradient(to right, #d6ae7b, #eacda3); /* W3C, IE 10+/ Edge, F
   0% {
     transform: translateX(-400px);
   }
-   100% {
+  100% {
     transform: translateX(0px);
     opacity: 1;
     
   }
 }
 
-
 .bg-sag .aktif-oyuncu{
   animation-name: oyuncu2-right-to-left;
   animation-duration: 1s;
   animation-fill-mode: forwards;
-    -webkit-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
 }  
-
 
 @keyframes oyuncu2-left-to-right{
   0% {
     transform: translateX(px);
   }
-   100% {
+  100% {
     transform: translateX(400px);
     opacity: 0;
   }
 }
-
-
 
 @keyframes oyuncu2-right-to-left{
 
   0% {
     transform: translateX(400px);
   }
-   100% {
+  100% {
     opacity: 1;
   }
 }
 .kaldirilan-tas{
-   pointer-events: none;
+ pointer-events: none;
  transition: all 2s;
  background: #eacda3;  
-
 }
 
 .btn3d {
@@ -499,12 +466,14 @@ background: linear-gradient(to right, #d6ae7b, #eacda3); /* W3C, IE 10+/ Edge, F
   display: none;
 }
 
-
 /* Responsive Uyarı*/
 @media screen and (max-width: 767px) {
   .modal-responsive-uyari {
     display: block;
     background-color:rgba(0, 0, 0, .95);
+  }
+  .modal-oyuncu-girisi{
+    display: none;
   }
 }
 

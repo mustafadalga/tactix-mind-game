@@ -55,16 +55,13 @@ $(document).ready(function () {
       $(".modal-oyuncu-girisi").slideUp();
       $(".modal-kura-cekimi").slideDown();
 
-
     } else {
 
       $(".modal-oyuncu-girisi  .modal-warning").html("<div class='modal-alert alert-danger'>Lütfen boş alanları doldurunuz</div >");
       setTimeout(function () {
         $(".alert-danger").slideUp();
       }, 3000);
-
     }
-
   });
 
 
@@ -97,7 +94,6 @@ $(document).ready(function () {
     satir = tasSatirSutunGetir(tas)[0];
     sutun = tasSatirSutunGetir(tas)[1];
     tasOynat(tas)
-
 
     if (taslar.length > 1) {
       zincirBaglimi = zincirBaglimiKontrol(satir, sutun);
@@ -194,7 +190,6 @@ function hamleYapilsinmi() {
     }
   });
 }
-
 
 function hamleYap() {
 
@@ -296,7 +291,6 @@ function oyunSonucAnimasyonGoster(aktifOyuncu) {
 
     $(".bg-sol .aktif-oyuncu img").attr("src", "assets/img/winner.png");
     $(".bg-sol .aktif-oyuncu").css('animation-name', 'oyuncu1-left-to-right');
-
     $(".bg-sag .aktif-oyuncu").css('animation-name', 'oyuncu2-left-to-right');
 
 
@@ -304,7 +298,6 @@ function oyunSonucAnimasyonGoster(aktifOyuncu) {
       $(".bg-sag .aktif-oyuncu img").attr("src", "assets/img/loser.png");
       $(".bg-sag .aktif-oyuncu").css('animation-name', 'oyuncu2-right-to-left');
     }, 1000);
-
 
 
   } else {
@@ -315,15 +308,12 @@ function oyunSonucAnimasyonGoster(aktifOyuncu) {
 
     $(".bg-sag .aktif-oyuncu img").attr("src", "assets/img/winner.png");
     $(".bg-sag .aktif-oyuncu").css('animation-name', 'oyuncu2-right-to-left');
-
     $(".bg-sol .aktif-oyuncu").css('animation-name', 'oyuncu1-right-to-left');
-
 
     setTimeout(function () {
       $(".bg-sol .aktif-oyuncu img").attr("src", "assets/img/loser.png");
       $(".bg-sol .aktif-oyuncu").css('animation-name', 'oyuncu1-left-to-right');
     }, 1000);
-
 
   }
 }
@@ -345,7 +335,7 @@ function degiskenVerileriniSifirla() {
 
 function oyunVerileriniSifirla() {
 
-  $(".sutun").removeClass("kaldirilan-tas");
+  $(".hucre").removeClass("kaldirilan-tas");
   $(".tas").removeClass("tas-bg-transparent");
   $(".tas").children().removeClass("tas-opacity");
   $(".tas-kaldir").attr("disabled", false);
@@ -359,11 +349,8 @@ function oyunVerileriniSifirla() {
   $(".bg-sag .aktif-oyuncu").addClass("d-none");
   $(".bg-sag .aktif-oyuncu img").attr("src", "assets/img/active-user.png");
 
-
-
   oyunSonucAnimasyonGizle();
   degiskenVerileriniSifirla();
-
 
 }
 
