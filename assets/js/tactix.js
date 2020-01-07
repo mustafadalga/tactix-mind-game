@@ -5,9 +5,15 @@ var oyuncu1 = "";
 var oyuncu2 = ""
 var kuraSonuc = 0;
 var aktifOyuncu = 0;
+
+modalEffeck();
+
 $(document).ready(function () {
 
-  $(document).on("click", ".btn-oyunu-baslat", function () {
+
+
+
+  $(document).on("click", ".btn-oyun-baslat", function () {
 
     $(".modal-kura-cekimi").slideUp();
     $.notify("Yeni oyun başladı", "success");
@@ -36,13 +42,14 @@ $(document).ready(function () {
       adSoyad = $(".profil-2 > h3").text();
     }
     $(".modal-kura-cekimi  .modal-footer").append("<div class='modal-alert alert-success'>Oyuna başlayacak oyuncu:" + adSoyad + "</div >");
-    $(".modal-kura-cekimi  .modal-footer").append("<button type='button' class='btn btn-primary btn-oyunu-baslat'>Oyunu Başlat</button>");
+    $(".modal-kura-cekimi  .modal-footer").append("<button type='button' class='btn btn-primary btn-oyun-baslat'>Oyunu Başlat</button>");
 
   });
 
 
-  $(".btn-oyun-baslat").click(function () {
+  $(".btn-ilerle").click(function () {
 
+    modalEffeck();
     oyuncu1 = $('input[name="oyuncu_1"]').val().toUpperCase();
     oyuncu2 = $('input[name="oyuncu_2"]').val().toUpperCase();
 
@@ -80,8 +87,9 @@ $(document).ready(function () {
 
   });
 
-  $(document).on("click", ".yeni-oyun", function () {
+  $(document).on("click", ".btn-yeni-oyun", function () {
 
+    modalEffeck();
     oyunVerileriniSifirla();
     $(".modal-kura-cekimi").addClass("modal-yeni-oyun");
     $(".modal-kura-cekimi").slideDown();
@@ -379,4 +387,23 @@ function isEmpty(input1, input2) {
 
 function kuraCek() {
   return Math.floor(Math.random() * 2) + 1;
+}
+
+function randomNumber() {
+
+  return Math.floor(Math.random() * 4) + 1;
+}
+
+function modalEffeck() {
+
+  var sayi = randomNumber();
+  if (sayi == 1) {
+    $(".modal").css({ 'animation-name': "modal-from-left" });
+  } else if (sayi == 2) {
+    $(".modal").css({ 'animation-name': "modal-from-right" });
+  } else if (sayi == 3) {
+    $(".modal").css({ 'animation-name': "modal-from-top" });
+  } else if (sayi == 4) {
+    $(".modal").css({ 'animation-name': "modal-from-bottom" });
+  }
 }
