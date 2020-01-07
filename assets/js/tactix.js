@@ -12,41 +12,6 @@ $(document).ready(function () {
 
 
 
-
-  $(document).on("click", ".btn-oyun-baslat", function () {
-
-    $(".modal-kura-cekimi").slideUp();
-    $.notify("Yeni oyun başladı", "success");
-
-    if (kuraSonuc == 1) {
-      $(".bg-sol .aktif-oyuncu").removeClass("d-none");
-      aktifOyuncu = 1;
-    } else {
-      $(".bg-sag .aktif-oyuncu").removeClass("d-none");
-      aktifOyuncu = 2;
-    }
-    $(".btn-kura-cek button").attr("disabled", false);
-  });
-
-
-  $(document).on("click", ".btn-kura-cek button", function () {
-
-    $(this).attr('disabled', true);
-    var adSoyad = "";
-    kuraSonuc = kuraCek();
-
-    if (kuraSonuc == 1) {
-      adSoyad = $(".profil-1 > h3").text();
-
-    } else {
-      adSoyad = $(".profil-2 > h3").text();
-    }
-    $(".modal-kura-cekimi  .modal-footer").append("<div class='modal-alert alert-success'>Oyuna başlayacak oyuncu:" + adSoyad + "</div >");
-    $(".modal-kura-cekimi  .modal-footer").append("<button type='button' class='btn btn-primary btn-oyun-baslat'>Oyunu Başlat</button>");
-
-  });
-
-
   $(".btn-ilerle").click(function () {
 
     modalEffect();
@@ -70,6 +35,46 @@ $(document).ready(function () {
       }, 3000);
     }
   });
+
+
+  $(document).on("click", ".btn-kura-cek button", function () {
+
+    $(this).attr('disabled', true);
+    var adSoyad = "";
+    kuraSonuc = kuraCek();
+
+    if (kuraSonuc == 1) {
+      adSoyad = $(".profil-1 > h3").text();
+
+    } else {
+      adSoyad = $(".profil-2 > h3").text();
+    }
+    $(".modal-kura-cekimi  .modal-footer").append("<div class='modal-alert alert-success'>Oyuna başlayacak oyuncu:" + adSoyad + "</div >");
+    $(".modal-kura-cekimi  .modal-footer").append("<button type='button' class='btn btn-primary btn-oyun-baslat'>Oyunu Başlat</button>");
+
+  });
+
+
+  $(document).on("click", ".btn-oyun-baslat", function () {
+
+    $(".modal-kura-cekimi").slideUp();
+    $.notify("Yeni oyun başladı", "success");
+
+    if (kuraSonuc == 1) {
+      $(".bg-sol .aktif-oyuncu").removeClass("d-none");
+      aktifOyuncu = 1;
+    } else {
+      $(".bg-sag .aktif-oyuncu").removeClass("d-none");
+      aktifOyuncu = 2;
+    }
+    $(".btn-kura-cek button").attr("disabled", false);
+  });
+
+
+
+
+
+
 
 
   $(".tas-kaldir").click(function () {
@@ -101,6 +106,8 @@ $(document).ready(function () {
     var tas = $(this);
     satir = tasSatirSutunGetir(tas)[0];
     sutun = tasSatirSutunGetir(tas)[1];
+    console.log(satir);
+    console.log(sutun);
     tasOynat(tas)
 
     if (taslar.length > 1) {
