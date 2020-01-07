@@ -8,7 +8,7 @@
 ### Tactix Zeka Oyunu
 
 * Bir strateji oyunudur. 
-*2 kişi ile oynanır.
+* 2 kişi ile oynanır.
 * Oyun kuralları basittir.
 * Oyunun amacı son pulu rakibin almasını sağlamaktır. 
 * Oyun alanı 4×4 =16 kareden oluşmaktadır. 
