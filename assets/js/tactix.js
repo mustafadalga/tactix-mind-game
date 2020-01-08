@@ -106,8 +106,6 @@ $(document).ready(function () {
     var tas = $(this);
     satir = tasSatirSutunGetir(tas)[0];
     sutun = tasSatirSutunGetir(tas)[1];
-    console.log(satir);
-    console.log(sutun);
     tasOynat(tas)
 
     if (taslar.length > 1) {
@@ -176,8 +174,6 @@ function tasYerineKoy(tas, satir, sutun) {
   taslar.splice(index, 1);
   tas.removeClass("tas-bg-transparent");
   tas.children().removeClass("tas-opacity");
-
-
   tas.parent().removeClass("kaldirilacak-tas");
 
 }
