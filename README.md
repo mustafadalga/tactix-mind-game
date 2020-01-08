@@ -55,6 +55,7 @@
 
 ### Notlar
  * Web uygulama responsive değildir.
+ * Oyun geliştirilmeye devam etmektedir.
  
  
 <hr>
