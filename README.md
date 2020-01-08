@@ -14,8 +14,12 @@
 * Oyun alanı 4×4 =16 kareden oluşmaktadır. 
 * 16 adet pul ile oynanmaktadır.
 * Yaş Grubu:6 Yaş ve Üzeri
-* Beceri Kazanımları:Dikkat Geliştirme, Soyut Düşünme, Strateji Geliştirme
 
+
+### Beceri Kazanımları
+* Dikkat Geliştirme
+* Soyut Düşünme
+* Strateji Geliştirme
 
 ### Tactix Oyun Kuralları
 
