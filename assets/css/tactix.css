@@ -377,6 +377,10 @@
   padding:10px;
   text-align: center;
 }
+.oyuncu-profil h3{
+  max-height: 50px;
+  overflow: hidden;
+}
 .btn-kura-cek{
   margin-top: 1em;
   width: 100%;
@@ -388,6 +392,10 @@
 }
 .modal-kura-cekimi  .alert-success{
   width: 100%;
+}
+.modal-kura-cekimi  .modal-alert{
+  max-height: 50px;
+  overflow: hidden;
 }
 .modal-kura-cekimi .modal-footer{
   flex-direction: column;

@@ -10,20 +10,18 @@ modalEffect();
 
 $(document).ready(function () {
 
-
-
   $(".btn-ilerle").click(function () {
 
     modalEffect();
-    oyuncu1 = $('input[name="oyuncu_1"]').val().toUpperCase();
-    oyuncu2 = $('input[name="oyuncu_2"]').val().toUpperCase();
+    oyuncu1 = checkInput($('input[name="oyuncu_1"]').val()).toUpperCase();
+    oyuncu2 = checkInput($('input[name="oyuncu_2"]').val()).toUpperCase();
 
     if (!isEmpty(oyuncu1, oyuncu2)) {
 
       $(".oyuncu-1-gosterge .oyuncu-ad").html(oyuncuAdBoslukBirak(oyuncu1));
       $(".oyuncu-2-gosterge .oyuncu-ad").html(oyuncuAdBoslukBirak(oyuncu2));
-      $(".profil-1 > h3").text(oyuncu1);
-      $(".profil-2 > h3").text(oyuncu2);
+      $(".profil-1 > h3").html(oyuncu1);
+      $(".profil-2 > h3").html(oyuncu2);
       $(".modal-oyuncu-girisi").slideUp();
       $(".modal-kura-cekimi").slideDown();
 
@@ -36,7 +34,6 @@ $(document).ready(function () {
     }
   });
 
-
   $(document).on("click", ".btn-kura-cek button", function () {
 
     $(this).attr('disabled', true);
@@ -44,10 +41,10 @@ $(document).ready(function () {
     kuraSonuc = kuraCek();
 
     if (kuraSonuc == 1) {
-      adSoyad = $(".profil-1 > h3").text();
+      adSoyad = $(".profil-1 > h3").html();
 
     } else {
-      adSoyad = $(".profil-2 > h3").text();
+      adSoyad = $(".profil-2 > h3").html();
     }
     $(".modal-kura-cekimi  .modal-footer").append("<div class='modal-alert alert-success'>Oyuna başlayacak oyuncu:" + adSoyad + "</div >");
     $(".modal-kura-cekimi  .modal-footer").append("<button type='button' class='btn btn-primary btn-oyun-baslat'>Oyunu Başlat</button>");
@@ -69,13 +66,6 @@ $(document).ready(function () {
     }
     $(".btn-kura-cek button").attr("disabled", false);
   });
-
-
-
-
-
-
-
 
   $(".tas-kaldir").click(function () {
 
@@ -106,11 +96,11 @@ $(document).ready(function () {
     var tas = $(this);
     satir = tasSatirSutunGetir(tas)[0];
     sutun = tasSatirSutunGetir(tas)[1];
-    tasOynat(tas)
 
-    if (taslar.length > 1) {
-      zincirBaglimi = zincirBaglimiKontrol(satir, sutun);
+    if (taslar.length > 0) {
+      zincirBaglimi = taslarBaglantiliMi(tas, satir, sutun);
     }
+    tasOynat(tas);
 
     if (taslar.length == 2) {
       zincirCaprazmi = zincirCaprazmiKontrol(satir, sutun);
@@ -119,7 +109,7 @@ $(document).ready(function () {
     if (zincirBaglimi && !zincirCaprazmi) {
 
       if (taslar.length > 2) {
-        checksatirsutun(satir, sutun);
+        checkSatirSutun(satir, sutun);
       }
     } else {
       taslariGonder();
@@ -131,15 +121,52 @@ $(document).ready(function () {
 
 /* FONKSIYONLAR */
 
-function zincirBaglimiKontrol(satir, sutun) {
+function taslarBaglantiliMi(tas, satir, sutun) {
 
-  satirResult = Math.abs(taslar[taslar.length - 2].satir - satir);
-  sutunResult = Math.abs(taslar[taslar.length - 2].sutun - sutun);
+  if (tasSecildimi(tas)) {
 
-  if (satirResult < 2 && sutunResult < 2) {
-    return true
+    var secilmisTasSayisi = taslar.length;
+    if (secilmisTasSayisi == 3) {
+
+      var sutunFark = Math.abs(taslar[1].sutun - sutun);
+      var satirFark = Math.abs(taslar[1].satir - satir);
+      if (satirFark == 0 && sutunFark == 0) {
+        return false;
+      } else {
+        return true;
+      }
+    } else if (secilmisTasSayisi == 4) {
+
+      var yatayMi = taslarYatayMiDikeyMi();
+
+      if (yatayMi) {
+        var sutunFark = Math.abs(taslar[1].sutun - sutun) == 0 || Math.abs(taslar[2].sutun - sutun) == 0;
+        if (sutunFark) {
+          return false;
+        }
+        else {
+          return true;
+        }
+      } else {
+        var satirFark = Math.abs(taslar[1].satir - satir) == 0 || Math.abs(taslar[2].satir - satir) == 0;
+        if (satirFark) {
+          return false;
+        } else {
+          return true;
+        }
+      }
+    } else {
+      return true;
+    }
+
   } else {
-    return false
+    var satirFark = Math.abs(taslar[taslar.length - 1].satir - satir);
+    var sutunFark = Math.abs(taslar[taslar.length - 1].sutun - sutun);
+    if (satirFark < 2 && sutunFark < 2) {
+      return true
+    } else {
+      return false
+    }
   }
 }
 
@@ -153,31 +180,9 @@ function zincirCaprazmiKontrol(satir, sutun) {
   }
 }
 
-function tasKaldir(tas, satir, sutun) {
-
-  taslar.push({
-    "satir": satir,
-    'sutun': sutun
-  });
-  tas.addClass("tas-bg-transparent");
-  tas.children().addClass("tas-opacity");
-  tas.parent().addClass("kaldirilacak-tas");
-}
-
 function oyuncuAdBoslukBirak(isim) {
   return isim.split(" ").join("<p></p>");
 }
-
-function tasYerineKoy(tas, satir, sutun) {
-
-  var index = taslar.findIndex(taslar => taslar.satir === satir && taslar.sutun === sutun);
-  taslar.splice(index, 1);
-  tas.removeClass("tas-bg-transparent");
-  tas.children().removeClass("tas-opacity");
-  tas.parent().removeClass("kaldirilacak-tas");
-
-}
-
 
 function hamleYapilsinmi() {
 
@@ -208,12 +213,10 @@ function hamleYap() {
   $(".kaldirilan-tas").removeClass("kaldirilacak-tas");
 
   if (oyunTamamlandimi()) {
-
     oyunSonucAnimasyonGoster(aktifOyuncu);
     $(this).attr('disabled', true);
 
   } else {
-
 
     if (aktifOyuncu == 1) {
       $(".oyuncu-2-gosterge").addClass("oyuncu-2-gosterge-hamle");
@@ -241,10 +244,27 @@ function hamleYap() {
 
 }
 
+function taslarYatayMiDikeyMi() {
+
+  satirFark = Math.abs(taslar[0].satir - taslar[1].satir);
+  sutunFark = Math.abs(taslar[0].sutun - taslar[1].sutun);
+  if (satirFark == 1) {
+    return false;
+  } else if (sutunFark == 1) {
+    return true;
+  }
+}
+
 function tasSatirSutunGetir(tas) {
-
   return [tas.attr("data-satir"), tas.attr("data-sutun")];
+}
 
+function tasSecildimi(tas) {
+  if (tas.hasClass("tas-bg-transparent")) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function tasOynat(tas) {
@@ -252,12 +272,39 @@ function tasOynat(tas) {
   satir = tasSatirSutunGetir(tas)[0];
   sutun = tasSatirSutunGetir(tas)[1];
 
-  if (tas.hasClass("tas-bg-transparent")) {
+  if (tasSecildimi(tas)) {
     tasYerineKoy(tas, satir, sutun);
   } else {
     tasKaldir(tas, satir, sutun);
   }
 
+}
+
+function tasKaldir(tas, satir, sutun) {
+
+  taslar.push({
+    "satir": satir,
+    'sutun': sutun
+  });
+  tas.addClass("tas-bg-transparent");
+  tas.children().addClass("tas-opacity");
+  tas.parent().addClass("kaldirilacak-tas");
+}
+
+function tasYerineKoy(tas, satir, sutun) {
+
+  var index = taslar.findIndex(taslar => taslar.satir === satir && taslar.sutun === sutun);
+  taslar.splice(index, 1);
+  tas.removeClass("tas-bg-transparent");
+  tas.children().removeClass("tas-opacity");
+  tas.parent().removeClass("kaldirilacak-tas");
+}
+
+function taslariGonder() {
+  taslar.forEach(element => taslariSifirla(element.satir, element.sutun));
+  taslar = [];
+  zincirBaglimi = true;
+  zincirCaprazmi = false;
 }
 
 function taslariSifirla(satir, sutun) {
@@ -267,11 +314,12 @@ function taslariSifirla(satir, sutun) {
   $('[data-satir=' + satir + '][data-sutun=' + sutun + ']').parent().removeClass("kaldirilacak-tas");
 }
 
-function taslariGonder() {
-  taslar.forEach(element => taslariSifirla(element.satir, element.sutun));
-  taslar = [];
-  zincirBaglimi = true;
-  zincirCaprazmi = false;
+function checkSatirSutun(satir, sutun) {
+
+  if (!((taslar[0].satir == satir || taslar[0].sutun == sutun) && (taslar[1].satir == satir || taslar[1].sutun == sutun))) {
+    taslariGonder();
+  }
+
 }
 
 function oyunTamamlandimi() {
@@ -365,22 +413,7 @@ function oyunVerileriniSifirla() {
 
 }
 
-
-function checksatirsutun(satir, sutun) {
-
-  if (!((taslar[0].satir == satir || taslar[0].sutun == sutun) && (taslar[1].satir == satir || taslar[1].sutun == sutun))) {
-
-    taslariGonder();
-
-  }
-  else {
-    //
-  }
-}
-
 function isEmpty(input1, input2) {
-
-
   if ($.trim(input1) && $.trim(input2)) {
     return false;
   } else {
@@ -393,12 +426,10 @@ function kuraCek() {
 }
 
 function randomNumber() {
-
   return Math.floor(Math.random() * 4) + 1;
 }
 
 function modalEffect() {
-
   var sayi = randomNumber();
   if (sayi == 1) {
     $(".modal").css({ 'animation-name': "modal-from-left" });
@@ -410,3 +441,9 @@ function modalEffect() {
     $(".modal").css({ 'animation-name': "modal-from-bottom" });
   }
 }
+
+function checkInput(value) {
+  var lt = /</g, gt = />/g, ap = /'/g, ic = /"/g;
+  return value.toString().replace(lt, "&lt;").replace(gt, "&gt;").replace(ap, "&#39;").replace(ic, "&#34;");
+}
+
