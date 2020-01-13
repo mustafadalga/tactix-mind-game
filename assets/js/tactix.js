@@ -55,6 +55,8 @@ $(document).ready(function () {
   $(document).on("click", ".btn-oyun-baslat", function () {
 
     $(".modal-kura-cekimi").slideUp();
+    taslariYerineKoy();
+
     $.notify("Yeni oyun başladı", "success");
 
     if (kuraSonuc == 1) {
@@ -120,6 +122,23 @@ $(document).ready(function () {
 
 
 /* FONKSIYONLAR */
+
+
+function taslariYerineKoy() {
+
+  $('[data-satir=4]').addClass("satir-4-yerlestir");
+  $('[data-satir=3]').addClass("satir-3-yerlestir");
+  $('[data-satir=2]').addClass("satir-2-yerlestir");
+  $('[data-satir=1]').addClass("satir-1-yerlestir");
+}
+
+function taslariYerindenKaldir() {
+
+  $('[data-satir=4]').removeClass("satir-4-yerlestir");
+  $('[data-satir=3]').removeClass("satir-3-yerlestir");
+  $('[data-satir=2]').removeClass("satir-2-yerlestir");
+  $('[data-satir=1]').removeClass("satir-1-yerlestir");
+}
 
 function taslarBaglantiliMi(tas, satir, sutun) {
 
@@ -408,6 +427,7 @@ function oyunVerileriniSifirla() {
   $(".bg-sag .aktif-oyuncu").addClass("d-none");
   $(".bg-sag .aktif-oyuncu img").attr("src", "assets/img/active-user.png");
 
+  taslariYerindenKaldir();
   oyunSonucAnimasyonGizle();
   degiskenVerileriniSifirla();
 

@@ -20,13 +20,15 @@
     background-size: cover;
     display: flex;
     flex-wrap: wrap;
+    border:3px solid #000;
   }
-
   .hucre {
     border: 2px solid #000;
     width: 116px;
     height: 116px;
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .tas {
     width: 90px;
@@ -38,10 +40,6 @@
     justify-content: center;
     align-items: center;
     border: 2px solid #000;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     cursor: pointer;
   }
 
@@ -58,6 +56,31 @@
   .tas-opacity {
     transition: all 2s;
     opacity: 0;
+  }
+  .satir-1-yerlestir{
+  animation-name: taslari-yerine-koy;
+  animation-duration: 1.75s;
+  }
+  .satir-2-yerlestir{
+    animation-name: taslari-yerine-koy;
+    animation-duration: 1.50s;
+  }
+  .satir-3-yerlestir{
+    animation-name: taslari-yerine-koy;
+    animation-duration: 1.25s;
+  }
+  .satir-4-yerlestir{
+    animation-name: taslari-yerine-koy;
+    animation-duration: 1s;
+  }
+
+  @keyframes taslari-yerine-koy{
+    0% {
+      transform: translateY(-600px);
+    }
+    100% {
+      transform: translateX(0px);
+    }
   }
 
   .islemler {
@@ -512,8 +535,8 @@
   display: none;
 }
 
-
 /* Responsive Uyarı*/
+
 @media screen and (max-width: 767px) {
   .modal-responsive-uyari {
     display: block;
@@ -523,7 +546,6 @@
     display: none!important;
   }
 }
-
 @media screen and (max-width: 575px){
 html, body {
    height: 100%;
@@ -533,7 +555,6 @@ position: fixed;
 }
  }
 
-
-
-
 /* End Responsive Uyarı*/
+
+
