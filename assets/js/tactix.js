@@ -213,12 +213,12 @@ function hamleYapilsinmi() {
     boxWidth: '40%',
     typeAnimated: true,
     buttons: {
-      yes: {
+      evet: {
         action: function () {
           hamleYap();
         }
       },
-      no: {
+      hayır: {
         action: function () {
         }
       },
