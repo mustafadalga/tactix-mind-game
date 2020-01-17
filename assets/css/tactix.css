@@ -4,35 +4,114 @@
   }
 
   .tactix-container {
-    display: flex;
+    height: 0;
+    padding-bottom:60%;
+    width: 80%;
     position: absolute;
-    top: 50%;
+    top: 36%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -36%);
+    display: flex;
     flex-direction: column;
   }
+  @media (max-width: 600px) {
+    .btn3d{
+      padding: .6em;
+      width: auto!important;
+    }
+   .btn3d span{
+     display: none;
+   }
+   .tas-kaldir img,.btn-yeni-oyun img{
+     width: 100%!important;
+   }
+  }
+  @media (max-width: 800px) {
+    .bg{
+      display: none!important;
+    }
+  }
+
+  @media (min-width: 500px) {
+    .tactix-container{
+      padding-bottom: 70%;
+      width: 60%;  
+    }
+  }
+  @media (min-width: 700px) {
+    .tactix-container{
+      padding-bottom: 60%;
+      width: 50%; 
+    }
+  }
+  @media (min-width: 800px) {
+    .tactix-container{
+      padding-bottom: 50%;
+      width: 45%;
+    }
+  }
+  @media (min-width: 900px) {
+    .tactix-container{
+      padding-bottom: 45%;
+      width: 40%;
+    }
+  }
+  
+  @media (min-width: 1000px) {
+    .tactix-container{
+      padding-bottom: 40%;
+      width: 35%;
+     }
+  }
+  
+  @media (min-width: 1200px) {
+   .tactix-container{
+    padding-bottom: 40%;
+    width: 30%;
+   }
+  }
+
 
   .tactix {
-    width: 480px;
-    height: 480px;
     background: url('../img/zemin.png');
     background-repeat: no-repeat;
     background-size: cover;
+    width: auto;
     display: flex;
     flex-wrap: wrap;
     border:3px solid #000;
+    justify-content: center;
+
+    align-items: flex-start;
+    align-content: flex-start;
+
+
   }
+  .satir{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
   .hucre {
+    /*
     border: 2px solid #000;
     width: 116px;
     height: 116px;
     display: flex;
     align-items: center;
     justify-content: center;
+    */
+
+    border: 2px solid #000;
+    height: 25%;
+    width: 25%;
+    padding:.5em;
+    box-sizing: border-box;
   }
   .tas {
-    width: 90px;
-    height: 90px;
+    margin:5%;
+    padding:20%;
     background: hsla(0, 100%, 50%, 0.6);
     border-radius: 50%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -43,12 +122,16 @@
     cursor: pointer;
   }
 
-  .tas > div {
-    width: 60px;
-    height: 60px;
+  .tas>div {
+    width: 40%;
+    height: 40%;
+    padding: 40%;
+    box-sizing: border-box;
+    margin: 25%;
     border-radius: 50%;
     background: linear-gradient(to left, #93291E, #ED213A);
   }
+
   .tas-bg-transparent {
     background: transparent!important;
     transition: all 1s;
@@ -82,19 +165,77 @@
       transform: translateX(0px);
     }
   }
-
-  .islemler {
-    width: 480px;
+  .islemler{
+    width: 100%;
     height: 60px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin-top: 0.5em;
   }
+  .tas-kaldir img,.btn-yeni-oyun img{
+    width: 25%;
+  }
+  
+  .btn3d {
+
+    font-weight: 400;
+    white-space: nowrap;
+    cursor: pointer;
+    border: 1px solid transparent;
+    font-size: 1rem;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+    position: relative;
+    top: -6px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 40%;
+  }
+  
+  .btn3d:active:focus,
+  .btn3d:focus:hover,
+  .btn3d:focus {
+    -moz-outline-style: none;
+    outline: medium none;
+  }
+  
+  .btn3d:active,
+  .btn3d.active {
+    top: 2px;
+  }
+  
+  .btn3d.btn-primary {
+    box-shadow: 0 0 0 1px #417fbd inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #4D5BBE, 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+    background-color: #4274D7;
+  }
+  
+  .btn3d.btn-primary:active,
+  .btn3d.btn-primary.active {
+    box-shadow: 0 0 0 1px #417fbd inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+    background-color: #4274D7;
+  }
+  
+  .btn3d.btn-success {
+    box-shadow: 0 0 0 1px #31c300 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #5eb924, 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+    background-color: #78d739;
+  }
+  
+  .btn3d.btn-success:active,
+  .btn3d.btn-success.active {
+    box-shadow: 0 0 0 1px #30cd00 inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+    background-color: #78d739;
+  }
+  
+  
   .oyuncu-1-gosterge,
   .oyuncu-2-gosterge {
-    width: 120px;
-    height: 540px;
+    width: 10%;
+    height: 80%;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -343,9 +484,6 @@
   background-color: #dc3545;
   border-color: #dc3545;
 }
-.tas-kaldir img,.btn-yeni-oyun img{
-  margin-right: 0.3em;
-}
 
 
 .alert-success{
@@ -370,7 +508,7 @@
   background: rgba(103, 230, 220,0.5);
   background: rgba(220, 221, 225);
   background: #f8f9fa;
-  width: calc(50% - 360px);
+  width: 25%;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -484,59 +622,13 @@
  background: #eacda3;  
 }
 
-.btn3d {
-	position: relative;
-	top: -6px;
-	border: 0;
-	transition: all 40ms linear;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	margin-left: 2px;
-  margin-right: 2px;
-  display: flex;
-  align-items: center;
-}
-
-.btn3d:active:focus,
-.btn3d:focus:hover,
-.btn3d:focus {
-	-moz-outline-style: none;
-	outline: medium none;
-}
-
-.btn3d:active,
-.btn3d.active {
-	top: 2px;
-}
-
-.btn3d.btn-primary {
-	box-shadow: 0 0 0 1px #417fbd inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #4D5BBE, 0 8px 8px 1px rgba(0, 0, 0, 0.5);
-	background-color: #4274D7;
-}
-
-.btn3d.btn-primary:active,
-.btn3d.btn-primary.active {
-	box-shadow: 0 0 0 1px #417fbd inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 3px 1px rgba(0, 0, 0, 0.3);
-	background-color: #4274D7;
-}
-
-.btn3d.btn-success {
-	box-shadow: 0 0 0 1px #31c300 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #5eb924, 0 8px 8px 1px rgba(0, 0, 0, 0.5);
-	background-color: #78d739;
-}
-
-.btn3d.btn-success:active,
-.btn3d.btn-success.active {
-	box-shadow: 0 0 0 1px #30cd00 inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 3px 1px rgba(0, 0, 0, 0.3);
-	background-color: #78d739;
-}
 
 .modal-responsive-uyari{
   display: none;
 }
 
 /* Responsive Uyarı*/
-
+/*
 @media screen and (max-width: 767px) {
   .modal-responsive-uyari {
     display: block;
@@ -546,6 +638,7 @@
     display: none!important;
   }
 }
+*/
 @media screen and (max-width: 575px){
 html, body {
    height: 100%;
