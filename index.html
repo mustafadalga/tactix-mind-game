@@ -2,159 +2,168 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta  name="viewport"    content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Tactix Oyunu</title>
     <link rel="icon" href="assets/img/favicon.ico" />
 
+    <link rel="stylesheet" href="assets/css/tactix.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <link rel="stylesheet" href="assets/css/jquery-confirm.min.css" />
     <link
-      rel="stylesheet" href="assets/css/tactix.css"
-    />
-    <link
+      href="https://fonts.googleapis.com/css?family=Miniver&display=swap"
       rel="stylesheet"
-      href="assets/css/jquery-confirm.min.css"
     />
 
   </head>
+  <style>
+  
+  </style>
 
   <body>
-    <div class="container">
-      <div class="bg bg-sol">
+    <header>
+      <div class="puanlama">
+          <div class=" d-none skor sol-skor animated  delay-1s">0</div>
+        <span>SKOR</span>
+          <div class="skor sag-skor animated delay-1s d-none">0</div>
+      </div>
+    </header>
+
+    <div class="bg bg-sol">
         <div class="aktif-oyuncu d-none">
           <img src="assets/img/active-user.png" />
-        </div>
       </div>
+    </div>
 
-      <div class="oyuncu-1-gosterge ">
-        <div class="oyuncu-ad">OYUNCU 1</div>
-      </div>
+    <div class="oyuncu-1-gosterge">
+      <div class="oyuncu-ad">OYUNCU 1</div>
+    </div>
 
-      <!-- TACTIX -->
-      <div class="tactix-container">
-        <div class="tactix">
-          <div class="satir">
-            <div class="hucre ">
-              <div class="tas" data-satir="1" data-sutun="1">
-                <div></div>
-              </div>
-            </div>
-            <div class="hucre">
-              <div class="tas" data-satir="1" data-sutun="2">
-                <div></div>
-              </div>
-            </div>
-            <div class="hucre">
-              <div class="tas" data-satir="1" data-sutun="3">
-                <div></div>
-              </div>
-            </div>
-            <div class="hucre">
-              <div class="tas" data-satir="1" data-sutun="4">
-                <div></div>
-              </div>
+    <!-- TACTIX -->
+    <div class="tactix-container">
+      <div class="tactix">
+        <div class="satir">
+          <div class="hucre ">
+            <div class="tas" data-satir="1" data-sutun="1">
+              <div></div>
             </div>
           </div>
-          <div class="satir">
-            <div class="hucre">
-              <div class="tas" data-satir="2" data-sutun="1">
-                <div></div>
-              </div>
-            </div>
-            <div class="hucre">
-              <div class="tas" data-satir="2" data-sutun="2">
-                <div></div>
-              </div>
-            </div>
-            <div class="hucre">
-              <div class="tas" data-satir="2" data-sutun="3">
-                <div></div>
-              </div>
-            </div>
-            <div class="hucre">
-              <div class="tas" data-satir="2" data-sutun="4">
-                <div></div>
-              </div>
+          <div class="hucre">
+            <div class="tas" data-satir="1" data-sutun="2">
+              <div></div>
             </div>
           </div>
-
-          <div class="satir">
-            <div class="hucre">
-              <div class="tas" data-satir="3" data-sutun="1">
-                <div></div>
-              </div>
-            </div>
-            <div class="hucre">
-              <div class="tas" data-satir="3" data-sutun="2">
-                <div></div>
-              </div>
-            </div>
-            <div class="hucre">
-              <div class="tas" data-satir="3" data-sutun="3">
-                <div></div>
-              </div>
-            </div>
-            <div class="hucre">
-              <div class="tas" data-satir="3" data-sutun="4">
-                <div></div>
-              </div>
+          <div class="hucre">
+            <div class="tas" data-satir="1" data-sutun="3">
+              <div></div>
             </div>
           </div>
-
-          <div class="satir">
-            <div class="hucre">
-              <div class="tas" data-satir="4" data-sutun="1">
-                <div></div>
-              </div>
-            </div>
-            <div class="hucre">
-              <div class="tas" data-satir="4" data-sutun="2">
-                <div></div>
-              </div>
-            </div>
-            <div class="hucre">
-              <div class="tas" data-satir="4" data-sutun="3">
-                <div></div>
-              </div>
-            </div>
-            <div class="hucre">
-              <div class="tas" data-satir="4" data-sutun="4">
-                <div></div>
-              </div>
+          <div class="hucre">
+            <div class="tas" data-satir="1" data-sutun="4">
+              <div></div>
             </div>
           </div>
         </div>
-        <div class="islemler">
-          <button type="button" class="btn-primary btn3d tas-kaldir">
-            <img src="assets/img/hand.png" alt=""> 
+        <div class="satir">
+          <div class="hucre">
+            <div class="tas" data-satir="2" data-sutun="1">
+              <div></div>
+            </div>
+          </div>
+          <div class="hucre">
+            <div class="tas" data-satir="2" data-sutun="2">
+              <div></div>
+            </div>
+          </div>
+          <div class="hucre">
+            <div class="tas" data-satir="2" data-sutun="3">
+              <div></div>
+            </div>
+          </div>
+          <div class="hucre">
+            <div class="tas" data-satir="2" data-sutun="4">
+              <div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="satir">
+          <div class="hucre">
+            <div class="tas" data-satir="3" data-sutun="1">
+              <div></div>
+            </div>
+          </div>
+          <div class="hucre">
+            <div class="tas" data-satir="3" data-sutun="2">
+              <div></div>
+            </div>
+          </div>
+          <div class="hucre">
+            <div class="tas" data-satir="3" data-sutun="3">
+              <div></div>
+            </div>
+          </div>
+          <div class="hucre">
+            <div class="tas" data-satir="3" data-sutun="4">
+              <div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="satir">
+          <div class="hucre">
+            <div class="tas" data-satir="4" data-sutun="1">
+              <div></div>
+            </div>
+          </div>
+          <div class="hucre">
+            <div class="tas" data-satir="4" data-sutun="2">
+              <div></div>
+            </div>
+          </div>
+          <div class="hucre">
+            <div class="tas" data-satir="4" data-sutun="3">
+              <div></div>
+            </div>
+          </div>
+          <div class="hucre">
+            <div class="tas" data-satir="4" data-sutun="4">
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="islemler">
+        <button type="button" class="btn-primary btn3d tas-kaldir">
+          <img src="assets/img/hand.png" alt="" />
           <span>Taşları Kaldır</span>
-          </button>
-          <button type="button" class="btn-success btn3d btn-yeni-oyun">
-            <img src="assets/img/repeat.png" alt=""> 
-            <span>Yeni Oyun</span>
-         </button>
-        </div>
+        </button>
+        <button type="button" class="btn-success btn3d btn-yeni-oyun">
+          <img src="assets/img/repeat.png" alt="" />
+          <span>Yeni Oyun</span>
+        </button>
       </div>
+    </div>
 
-      <!-- END TACTIX -->
+    <!-- END TACTIX -->
 
-      <div class="oyuncu-2-gosterge">
-        <div class="oyuncu-ad">OYUNCU 2</div>
-      </div>
+    <div class="oyuncu-2-gosterge">
+      <div class="oyuncu-ad">OYUNCU 2</div>
+    </div>
 
-      <div class="bg bg-sag ">
+    <div class="bg bg-sag">
         <div class="aktif-oyuncu d-none">
           <img src="assets/img/active-user.png" />
-        </div>
       </div>
     </div>
 
     <!-- MODALS-->
 
     <!--    Oyuncu Bilgi Girişi - Başlangıç  -->
-    <div class="modal modal-oyuncu-girisi d-none">
+    <div class="modal modal-oyuncu-girisi">
       <div class="modal-content">
         <div class="modal-header">
-          <div class="modal-title">Tactix Oyunu - Oyuncu Bilgileri Girişi</div>
+          <div class="modal-title">Oyuncular Bilgi Girişi</div>
         </div>
 
         <div class="modal-body">
@@ -193,7 +202,7 @@
     <div class="modal modal-kura-cekimi d-none">
       <div class="modal-content">
         <div class="modal-header">
-          <div class="modal-title">Tactix Oyunu - Kura Çekimi</div>
+          <div class="modal-title">Kura Çekimi</div>
           <button type="button" class="close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -232,7 +241,7 @@
         <div class="modal-body">
           <div class="modal-alert alert-danger">
             Tactix zeka oyununun web uygulamasının responsive tasarımı
-            kodlanmamıştır.<br />Oyunu oynamak için bilgisayardan giriş
+            kodlanmamıştır .<br />Oyunu oynamak için bilgisayardan giriş
             yapabilirsiniz .
           </div>
         </div>

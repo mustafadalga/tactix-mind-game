@@ -1,8 +1,12 @@
   body {
     margin: 0px;
     padding: 0px;
+    width: 100vw;
+    height: 100vh;
+background: url('../img/zemin.png');
+  background-repeat: no-repeat;
+  background-size: cover;
   }
-
   .tactix-container {
     height: 0;
     padding-bottom:60%;
@@ -14,61 +18,70 @@
     display: flex;
     flex-direction: column;
   }
-  @media (max-width: 600px) {
-    .btn3d{
-      padding: .6em;
-      width: auto!important;
-    }
-   .btn3d span{
-     display: none;
-   }
-   .tas-kaldir img,.btn-yeni-oyun img{
-     width: 100%!important;
-   }
-  }
-  @media (max-width: 800px) {
-    .bg{
-      display: none!important;
-    }
+  .puanlama {
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    transform: translate(-50%, -2%);
+    background: linear-gradient(to left, #4A569D, #DC2424);
+    width: 40%;
+    max-height: 36px;
+    display: flex;
+    justify-content: space-around;
+    z-index: 1;
+    
   }
 
-  @media (min-width: 500px) {
-    .tactix-container{
-      padding-bottom: 70%;
-      width: 60%;  
-    }
+  .puanlama:before,.puanlama:after{
+    position: absolute;
+    top: 0%;
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: solid 18px transparent;
+    border-bottom: solid 18px transparent;
   }
-  @media (min-width: 700px) {
-    .tactix-container{
-      padding-bottom: 60%;
-      width: 50%; 
-    }
+  .puanlama:after {
+    z-index: -1;
+    left: 100%;
+    border-left: solid 18px rgba(74, 86, 157, 1);
   }
-  @media (min-width: 800px) {
-    .tactix-container{
-      padding-bottom: 50%;
-      width: 45%;
-    }
+  .puanlama:before {
+    z-index: -1;
+    left: -18px;
+    border-right: solid 18px rgba(220, 36, 36, 1);
   }
-  @media (min-width: 900px) {
-    .tactix-container{
-      padding-bottom: 45%;
-      width: 40%;
-    }
+  .puanlama span {
+    color: #fff;
+    font-size: 2em;
   }
-  
-  @media (min-width: 1000px) {
-    .tactix-container{
-      padding-bottom: 40%;
-      width: 35%;
-     }
+  .opacity-1{
+    opacity: 1!important;
   }
-  
-  @media (min-width: 1200px) {
-   .tactix-container{
-    padding-bottom: 40%;
-    width: 30%;
-   }
+  .puanlama .skor{
+    position: absolute;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    font-family: "Miniver", cursive;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    height: 0;
+    width: 15%;
+    padding-bottom: 7.5%;
+    padding-top: 7.5%;
+    border:1px solid #000;
+    opacity: 0;
+  }
+
+ .puanlama .sol-skor {
+    left: -40%;
+    background: rgba(255,0,0,.8);
+  }
+.puanlama .sag-skor {
+    right: -40%;
+    background: #1089ff;
   }
 
 
@@ -81,28 +94,15 @@
     flex-wrap: wrap;
     border:3px solid #000;
     justify-content: center;
-
     align-items: flex-start;
     align-content: flex-start;
-
-
   }
   .satir{
     width: 100%;
     display: flex;
     flex-direction: row;
 }
-
   .hucre {
-    /*
-    border: 2px solid #000;
-    width: 116px;
-    height: 116px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    */
-
     border: 2px solid #000;
     height: 25%;
     width: 25%;
@@ -234,7 +234,7 @@
   
   .oyuncu-1-gosterge,
   .oyuncu-2-gosterge {
-    width: 10%;
+    width: 8%;
     height: 80%;
     position: absolute;
     top: 50%;
@@ -243,17 +243,24 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    z-index: 1;
+    border:3px solid #000;
+    
   }
 
   .oyuncu-1-gosterge {
     left: 0%;
-    background:rgba(255,0,0,.8);
+    background:rgba(255,0,0,.7);
+    border-top-right-radius: 10em;
+    border-bottom-right-radius: 10em;
+
+
   }
 
   .oyuncu-2-gosterge {
-    background:#1089ff;
+    background:rgba(16, 137, 255, .9);
     right: 0%;
+    border-top-left-radius: 10em;
+    border-bottom-left-radius: 10em;
   }
 
   .oyuncu-ad {
@@ -349,7 +356,6 @@
 
 .modal-content {
   background: #fff;
-  width: 50%;
   margin: 5% 25% auto 25%;
   border: 1px solid #888;
   padding: 20px;
@@ -501,13 +507,9 @@
   display: none;
 
 }
-
 .bg {
   position: absolute;
   top: 0px;
-  background: rgba(103, 230, 220,0.5);
-  background: rgba(220, 221, 225);
-  background: #f8f9fa;
   width: 25%;
   height: 100vh;
   display: flex;
@@ -627,27 +629,100 @@
   display: none;
 }
 
-/* Responsive Uyarı*/
-/*
-@media screen and (max-width: 767px) {
-  .modal-responsive-uyari {
-    display: block;
-    background-color:rgba(0, 0, 0, .95);
+
+
+/*MEDIA SCREEN*/
+@media (max-width: 900px) {
+  .puanlama .skor {
+      width: 20%;
+      padding:10% 0;
+    }
   }
-  .modal-oyuncu-girisi,.modal-kura-cekimi{
-    display: none!important;
+  @media (max-width: 800px) {
+    .bg{
+      display: none!important;
+    }
   }
-}
-*/
-@media screen and (max-width: 575px){
-html, body {
-   height: 100%;
-overflow: hidden !important;
-width: 100%;
-position: fixed;
-}
+  @media (max-width: 600px) {
+    .btn3d{
+      padding: .6em;
+      width: auto!important;
+    }
+   .btn3d span{
+     display: none;
+   }
+   .tas-kaldir img,.btn-yeni-oyun img{
+     width: 100%!important;
+   }
+   .puanlama .skor {
+    width: 32%;
+    padding:16% 0;
+  }
+  .puanlama .sol-skor{
+    left:-50%;
+  }
+  .puanlama .sag-skor{
+    right:-50%;
+  }
+  }
+ @media (max-width:500px){
+  .oyuncu-ad{
+    width:10px;
+  }
+  .modal-content{
+    margin-left:10%;
+    margin-right:10%;
+  }
  }
 
-/* End Responsive Uyarı*/
+  @media (min-width: 500px) {
+    .tactix-container{
+      padding-bottom: 65%;
+      width: 55%;  
+    }
+  }
+  @media (min-width: 700px) {
+    .tactix-container{
+      padding-bottom: 50%;
+      width: 50%; 
+    }
+  }
+  @media (min-width: 800px) {
+    .tactix-container{
+      padding-bottom: 50%;
+      width: 45%;
+    }
+  }
+  @media (min-width: 900px) {
+    .tactix-container{
+      padding-bottom: 45%;
+      width: 40%;
+    }
+  }
+  
+  @media (min-width: 1000px) {
+    .tactix-container{
+      padding-bottom: 35%;
+      width: 35%;
+     }
+  }
+  
+  @media (min-width: 1200px) {
+   .tactix-container{
+    padding-bottom: 30%;
+    width: 30%;
+   }
+  }
 
 
+  @media screen and (max-width: 575px){
+    html, body {
+       height: 100%;
+    overflow: hidden !important;
+    width: 100%;
+    position: fixed;
+    }
+     }
+
+
+/* END MEDIA SCREEN*/

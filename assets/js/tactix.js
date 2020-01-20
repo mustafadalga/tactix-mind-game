@@ -5,19 +5,22 @@ var oyuncu1 = "";
 var oyuncu2 = ""
 var kuraSonuc = 0;
 var aktifOyuncu = 0;
-
-modalEffect();
+var solSkor = 0;
+var sagSkor = 0;
+var durum=true;
 
 $(document).ready(function () {
 
+  modalEffect();
+
   $(".btn-ilerle").click(function () {
 
-    modalEffect();
+   
     oyuncu1 = checkInput($('input[name="oyuncu_1"]').val()).toUpperCase();
     oyuncu2 = checkInput($('input[name="oyuncu_2"]').val()).toUpperCase();
 
     if (!isEmpty(oyuncu1, oyuncu2)) {
-
+      modalEffect();
       $(".oyuncu-1-gosterge .oyuncu-ad").html(oyuncuAdBoslukBirak(oyuncu1));
       $(".oyuncu-2-gosterge .oyuncu-ad").html(oyuncuAdBoslukBirak(oyuncu2));
       $(".profil-1 > h3").html(oyuncu1);
@@ -42,9 +45,8 @@ $(document).ready(function () {
 
     if (kuraSonuc == 1) {
       adSoyad = $(".profil-1 > h3").html();
-
     } else {
-      adSoyad = $(".profil-2 > h3").html();
+      adSoyad = $(".profil-2 > h3").html();  
     }
     $(".modal-kura-cekimi  .modal-footer").append("<div class='modal-alert alert-success'>Oyuna başlayacak oyuncu:" + adSoyad + "</div >");
     $(".modal-kura-cekimi  .modal-footer").append("<button type='button' class='btn btn-primary btn-oyun-baslat'>Oyunu Başlat</button>");
@@ -54,18 +56,29 @@ $(document).ready(function () {
 
   $(document).on("click", ".btn-oyun-baslat", function () {
 
-    $(".modal-kura-cekimi").slideUp();
+    $(".hucre").removeClass("kaldirilan-tas");
+    $(".tas").removeClass("tas-bg-transparent");
+    $(".tas").children().removeClass("tas-opacity");
+    
+    if(durum){
+      $(".sol-skor").addClass("bounceInDown opacity-1");
+      $(".sag-skor").addClass("bounceInDown opacity-1");
+      durum=false;
+    }
+
     taslariYerineKoy();
+    $(".modal-kura-cekimi").slideUp();
 
     $.notify("Yeni oyun başladı", "success");
 
     if (kuraSonuc == 1) {
       $(".bg-sol .aktif-oyuncu").removeClass("d-none");
-      aktifOyuncu = 1;
+      $(".bg-sol .aktif-oyuncu").css('animation-name', 'oyuncu1-left-to-right');
     } else {
       $(".bg-sag .aktif-oyuncu").removeClass("d-none");
-      aktifOyuncu = 2;
+      $(".bg-sag .aktif-oyuncu").css('animation-name', 'oyuncu2-right-to-left');
     }
+    aktifOyuncu=kuraSonuc;
     $(".btn-kura-cek button").attr("disabled", false);
   });
 
@@ -122,7 +135,6 @@ $(document).ready(function () {
 
 
 /* FONKSIYONLAR */
-
 
 function taslariYerineKoy() {
 
@@ -233,7 +245,7 @@ function hamleYap() {
 
   if (oyunTamamlandimi()) {
     oyunSonucAnimasyonGoster(aktifOyuncu);
-    $(this).attr('disabled', true);
+    $(".tas-kaldir").attr('disabled', true);
 
   } else {
 
@@ -338,7 +350,6 @@ function checkSatirSutun(satir, sutun) {
   if (!((taslar[0].satir == satir || taslar[0].sutun == sutun) && (taslar[1].satir == satir || taslar[1].sutun == sutun))) {
     taslariGonder();
   }
-
 }
 
 function oyunTamamlandimi() {
@@ -361,7 +372,10 @@ function kimKazandi(aktifOyuncu) {
 
 function oyunSonucAnimasyonGoster(aktifOyuncu) {
 
-  if (kimKazandi(aktifOyuncu) == 1) {
+  kazananOyuncu = kimKazandi(aktifOyuncu);
+  puanGuncelle(kazananOyuncu);
+
+  if (kazananOyuncu == 1) {
 
     $.notify(
       "Oyunu kazanan oyuncu:" + oyuncu1, { className: "success", position: "top center" },
@@ -371,12 +385,10 @@ function oyunSonucAnimasyonGoster(aktifOyuncu) {
     $(".bg-sol .aktif-oyuncu").css('animation-name', 'oyuncu1-left-to-right');
     $(".bg-sag .aktif-oyuncu").css('animation-name', 'oyuncu2-left-to-right');
 
-
     setTimeout(function () {
       $(".bg-sag .aktif-oyuncu img").attr("src", "assets/img/loser.png");
       $(".bg-sag .aktif-oyuncu").css('animation-name', 'oyuncu2-right-to-left');
     }, 1000);
-
 
   } else {
 
@@ -394,15 +406,45 @@ function oyunSonucAnimasyonGoster(aktifOyuncu) {
     }, 1000);
 
   }
+  
 }
 
-function oyunSonucAnimasyonGizle() {
+function puanGuncelle(kazananOyuncu) {
 
-  $(".bg-sol").removeClass("sol-infinite-animation");
-  $(".bg-sag").removeClass("sag-infinite-animation");
+  var sinifIsim = "";
+
+  if (kazananOyuncu == 1) {
+    solSkor++;
+    sinifIsim = ".sol-skor";
+    puanlamaAnimasyonCalistir(sinifIsim = sinifIsim, solSkor = solSkor, sagSkor = false);
+  } else {
+    sagSkor++;
+    sinifIsim = ".sag-skor";
+    puanlamaAnimasyonCalistir(sinifIsim = sinifIsim, solSkor = false, sagSkor = sagSkor);
+  }
+
 }
 
-function degiskenVerileriniSifirla() {
+function puanlamaAnimasyonCalistir(sinifIsim, solSkor, sagSkor) {
+
+  $(sinifIsim).removeClass("bounceInDown");
+  $(sinifIsim).addClass("flip");
+
+  setTimeout(function () {
+
+    if (sinifIsim == ".sol-skor") {
+      $(sinifIsim).html(solSkor);
+    } else {
+      $(sinifIsim).html(sagSkor);
+    }
+  }, 1000);
+
+  setTimeout(function () {
+    $(sinifIsim).removeClass("flip");
+  }, 3000);
+}
+
+function degiskenleriSifirla() {
 
   taslar = [];
   zincirBaglimi = true;
@@ -413,23 +455,17 @@ function degiskenVerileriniSifirla() {
 
 function oyunVerileriniSifirla() {
 
-  $(".hucre").removeClass("kaldirilan-tas");
-  $(".tas").removeClass("tas-bg-transparent");
-  $(".tas").children().removeClass("tas-opacity");
   $(".tas-kaldir").attr("disabled", false);
   $(".btn-btn-kura-cek button").attr("disabled", false);
   $(".modal-kura-cekimi .modal-footer").html('');
 
-  $(".bg-sol .aktif-oyuncu").css('animation-name', 'oyuncu1-left-to-right');
-  $(".bg-sol .aktif-oyuncu").addClass("d-none");
+  $(".bg-sol .aktif-oyuncu").css('animation-name', 'oyuncu1-right-to-left');
   $(".bg-sol .aktif-oyuncu img").attr("src", "assets/img/active-user.png");
-  $(".bg-sag .aktif-oyuncu").css('animation-name', 'oyuncu2-right-to-left');
-  $(".bg-sag .aktif-oyuncu").addClass("d-none");
+  $(".bg-sag .aktif-oyuncu").css('animation-name', 'oyuncu2-left-to-right');
   $(".bg-sag .aktif-oyuncu img").attr("src", "assets/img/active-user.png");
 
   taslariYerindenKaldir();
-  oyunSonucAnimasyonGizle();
-  degiskenVerileriniSifirla();
+  degiskenleriSifirla();
 
 }
 
