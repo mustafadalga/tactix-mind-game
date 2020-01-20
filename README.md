@@ -51,6 +51,8 @@
  * Jquery
  * Jquery Confirm
  * Notify JS
+ * Animate CSS
+
 
 
 ### Notlar
@@ -64,9 +66,13 @@
 
 ### Proje Görüntüleri
 
-* **Görüntü 1**
+* **Bilgisayar Görünümü**
 
-![screencapture-127-0-0-1-5500-index-html-2020-01-05-21_02_17](https://user-images.githubusercontent.com/25087769/71783981-4b04e780-2fff-11ea-9bfa-dea9b24cb955.png)
+![web](https://user-images.githubusercontent.com/25087769/72763585-7558c680-3bf5-11ea-800a-6bd03ecbd4a2.png)
+
+* **Mobil Görünümü**
+
+![mobile](https://user-images.githubusercontent.com/25087769/72763586-7558c680-3bf5-11ea-872a-fcd35d7dc7d2.png)
 
 
 
