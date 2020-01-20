@@ -644,6 +644,9 @@ background: url('../img/zemin.png');
     }
   }
   @media (max-width: 600px) {
+    .islemler{
+      margin-top: 1.5em;
+    }
     .btn3d{
       padding: .6em;
       width: auto!important;
@@ -714,15 +717,6 @@ background: url('../img/zemin.png');
    }
   }
 
-
-  @media screen and (max-width: 575px){
-    html, body {
-       height: 100%;
-    overflow: hidden !important;
-    width: 100%;
-    position: fixed;
-    }
-     }
 
 
 /* END MEDIA SCREEN*/
