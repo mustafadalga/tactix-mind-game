@@ -372,15 +372,12 @@ function kimKazandi(aktifOyuncu) {
 
 function oyunSonucAnimasyonGoster(aktifOyuncu) {
 
-  kazananOyuncu = kimKazandi(aktifOyuncu);
-  puanGuncelle(kazananOyuncu);
+  let kazananNo = kimKazandi(aktifOyuncu);
+  let kazananOyuncu="";
+  puanGuncelle(kazananNo);
 
-  if (kazananOyuncu == 1) {
-
-    $.notify(
-      "Oyunu kazanan oyuncu:" + oyuncu1, { className: "success", position: "top center" },
-    );
-
+  if (kazananNo == 1) {
+     kazananOyuncu=oyuncu1;
     $(".bg-sol .aktif-oyuncu img").attr("src", "assets/img/winner.png");
     $(".bg-sol .aktif-oyuncu").css('animation-name', 'oyuncu1-left-to-right');
     $(".bg-sag .aktif-oyuncu").css('animation-name', 'oyuncu2-left-to-right');
@@ -391,11 +388,7 @@ function oyunSonucAnimasyonGoster(aktifOyuncu) {
     }, 1000);
 
   } else {
-
-    $.notify(
-      "Oyunu kazanan oyuncu:" + oyuncu2, { className: "success", position: "top center" },
-    );
-
+    kazananOyuncu=oyuncu2;
     $(".bg-sag .aktif-oyuncu img").attr("src", "assets/img/winner.png");
     $(".bg-sag .aktif-oyuncu").css('animation-name', 'oyuncu2-right-to-left');
     $(".bg-sol .aktif-oyuncu").css('animation-name', 'oyuncu1-right-to-left');
@@ -406,14 +399,15 @@ function oyunSonucAnimasyonGoster(aktifOyuncu) {
     }, 1000);
 
   }
+  $.notify("Oyunu kazanan oyuncu:" + kazananOyuncu, "success");
   
 }
 
-function puanGuncelle(kazananOyuncu) {
+function puanGuncelle(kazananNo) {
 
   var sinifIsim = "";
 
-  if (kazananOyuncu == 1) {
+  if (kazananNo == 1) {
     solSkor++;
     sinifIsim = ".sol-skor";
     puanlamaAnimasyonCalistir(sinifIsim = sinifIsim, solSkor = solSkor, sagSkor = false);
