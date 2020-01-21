@@ -399,7 +399,7 @@ function oyunSonucAnimasyonGoster(aktifOyuncu) {
     }, 1000);
 
   }
-  $.notify("Oyunu kazanan oyuncu:" + kazananOyuncu, "success");
+  $.notify("Kazanan:" + kazananOyuncu, "success");
   
 }
 
